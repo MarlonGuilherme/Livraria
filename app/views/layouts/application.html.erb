@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gerenciador de Livros</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style>
+      nav {
+        background-color: #444;
+        padding: 10px;
+      }
+      nav a {
+        color: white;
+        margin-right: 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <%= link_to "Usuários", usuarios_path %>
+      <%= link_to "Autores", autors_path %>
+      <%= link_to "Livros", livros_path %>
+      <%= link_to "Aluguéis",aluguels_path %>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

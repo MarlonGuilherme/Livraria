@@ -1,0 +1,37 @@
+<%= form_with(model: aluguel) do |form| %>
+  <% if aluguel.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
+
+      <ul>
+        <% aluguel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :usuario_id, "Usuário", style: "display: block" %>
+    <%= form.collection_select :usuario_id, Usuario.all, :id, :nome, { prompt: "Selecione um usuário" } %>
+  </div>
+
+  <div>
+    <%= form.label :livro_id, "Livro", style: "display: block" %>
+    <%= form.collection_select :livro_id, Livro.all, :id, :nome, { prompt: "Selecione um livro" } %>
+  </div>
+
+  <div>
+    <%= form.label :data_inicial, style: "display: block" %>
+    <%= form.date_field :data_inicial %>
+  </div>
+
+  <div>
+    <%= form.label :data_entrega, style: "display: block" %>
+    <%= form.date_field :data_entrega %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
